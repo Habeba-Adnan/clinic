@@ -1,0 +1,40 @@
+﻿using Hospital.Models;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
+
+namespace Hospital.DTOs
+{
+    public class GetPatientDTO
+    {
+        public int Id { get; set; } 
+      
+        public string Name { get; set; }
+        public string Age { get; set; }
+
+        [JsonIgnore]
+        public Gender Gender { get; set; }
+
+        [NotMapped]
+        public string GenderString { get; set; }
+
+        
+        [RegularExpression(@"^(010|012|015|011)\d{8}$", ErrorMessage = "Phone number must start with 010, 012, 015, or 011 and be followed by 8 digits.")]
+        public string Phone { get; set; }
+        public string MedicalHx { get; set; }
+        public DateTime DateOfOperation { get; set; }
+        public DateTime DateOfCard { get; set; }
+        public string Symptoms { get; set; }
+        public string Signs { get; set; }
+        public string Diagnosis { get; set; }
+        public string Operation { get; set; }
+        public string IntraoperationComp { get; set; }
+        public DateTime FollowUpDay { get; set; }
+        public DateTime FollowUpMonth { get; set; }
+        public DateTime FollowUpYear { get; set; }
+        public string Assistant { get; set; }
+        public string Anaesthetist { get; set; }
+        public string PDFPath { get; set; }
+        public bool HavePDF { get; set; }
+    }
+}
